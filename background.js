@@ -1,23 +1,3 @@
-chrome.runtime.onMessage.addListener(
-  function(request, sender, sendResponse) {
-    console.log(sender.tab ?
-                "from a content script:" + sender.tab.url :
-                "from the extension");
-    
-
-    if (request.greeting == "bag items"){
-      sendResponse({farewell: "item names received by popup ..."});
-      chrome.storage.sync.set({bag_items: request.bag_items});
-      console.log("items in bag: " + request.bag_items)
-    }
-
-    if (request.greeting == "user clicks"){
-        sendResponse({farewell: "click report received by popup ..."});
-        console.log("the item name is: " + request.item);
-    }
-});
-
- 
 chrome.runtime.onInstalled.addListener(
     function() 
     {
@@ -37,7 +17,7 @@ chrome.runtime.onInstalled.addListener(
                             }
                         );
         // storage API set variables that can be globally accessed.
-        chrome.storage.sync.set({color: '#3aa757'}, function(){console.log("The color is green.");});
+        // chrome.storage.sync.set({color: '#3aa757'}, function(){console.log("The color is green.");});
         chrome.declarativeContent.onPageChanged.removeRules(undefined, 
             function() 
             {
@@ -46,5 +26,7 @@ chrome.runtime.onInstalled.addListener(
                 actions: [new chrome.declarativeContent.ShowPageAction()]}]);
             }
         );
+
+        
     }
 );

@@ -1,7 +1,7 @@
 {
-    "name": "Getting Started Example",
+    "name": "Tell Me Combo",
     "version": "1.0",
-    "description": "Build an Extension!",
+    "description": "A google chrome extension for quick combo optimization when you are shopping online",
     "permissions": ["activeTab", "declarativeContent", "storage", "tabs", "https://*/*", "http://*/*"],
     "content_scripts": 
     [
